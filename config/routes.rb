@@ -1,5 +1,12 @@
 Joinme::Application.routes.draw do
-  resources :ideas
+  resources :images, :only=>[:create, :destroy]
+
+  resources :ideas do
+    member do
+      get :join 
+      get :unjoin
+    end
+  end
 
   devise_for :users, :controllers => {:sessions => "sessions"} 
   

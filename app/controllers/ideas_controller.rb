@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /ideas
   # GET /ideas.json
   def index
@@ -41,6 +43,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(params[:idea])
+    @idea.user_id = current_user.id
 
     respond_to do |format|
       if @idea.save
@@ -67,6 +70,18 @@ class IdeasController < ApplicationController
         format.json { render json: @idea.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def join
+    @idea = Idea.find(params[:id])
+    @idea.users << current_user
+    redirect_to(@idea)
+  end
+
+  def unjoin
+    @idea = Idea.find(params[:id])
+    @idea.users.delete(current_user)
+    redirect_to(@idea)
   end
 
   # DELETE /ideas/1

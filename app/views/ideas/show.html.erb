@@ -24,7 +24,32 @@
   <b>Requirements:</b>
   <%= @idea.requirements %>
 </p>
+<%= form_for Image.new, :html => { :multipart => true } do |f| %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :idea_id, :value=>@idea.id %>
+  <%= f.submit "Upload" %>
+<% end %>
+<% if @idea.user == current_user %>
+  <% @idea.images.each do |i| %>
+  <div>
+    <img src="<%=  i.image.url(:small) %>"/>
+    <%= link_to 'Destroy', i, confirm: 'Are you sure?', method: :delete %>
+  </div>
+  <% end %>
+<% end %>
 
+<% @idea.users.each do |u| %>
+<div>
+  <b><%= u.email %></b>
+  <% if u.id == current_user.id %>
+    <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?' %>
+  <% end %>
+</div>
+<% end %>
+<% unless @idea.users.include?(current_user) %>
+  <%= link_to 'Join', join_idea_path(@idea) %>
+<% end %>
 
+<br/>
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>
