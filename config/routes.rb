@@ -1,6 +1,8 @@
 Joinme::Application.routes.draw do
 
-  devise_for :users, :controllers => {:sessions => "custom_sessions"}
+  devise_for :users, :controllers => {:sessions => "custom_sessions"} do
+    get "users", :to => "users#profile", :as => :user_root
+  end
 
   resources :images, :only=>[:create, :destroy]
 

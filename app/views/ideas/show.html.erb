@@ -4,18 +4,20 @@
   </div>
   <div class="right">
     <div class="center">
-    <div class="joined"><b>22</b> <br/> joined </div>
-    <div class="liked"><b>12</b> <br/> liked this</div>
+    <div class="joined"><b><%= (14 + @idea.users.count).to_s %>  </b> <br/> joined </div>
+    <div class="liked"><b><%= (23 + 0).to_s %> </b> <br/> liked this</div>
   </div>
   <div class="g-clear-20"></div>
-  <div class="center">
-  <% if @idea.users.include?(current_user) %>
-    <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?', :class=>"large green awesome" %>
-  <% else %>
-    <%= link_to 'Join', join_idea_path(@idea), :class=>"large green awesome" %>
-  <% end %>
+  <% if @idea.user != current_user %>
+    <div class="center">
+      <% if @idea.users.include?(current_user) %>
+        <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?', :class=>"large green awesome" %>
+      <% else %>
+        <%= link_to 'Join', join_idea_path(@idea), :class=>"large green awesome" %>
+      <% end %>
 
-  </div>
+    </div>
+  <% end %>
   </div>
 </div>
 <div class="g-clear"></div>

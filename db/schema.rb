@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610004435) do
+ActiveRecord::Schema.define(:version => 20120610200448) do
 
   create_table "idea_users", :force => true do |t|
     t.integer  "user_id"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(:version => 20120610004435) do
     t.string   "title"
     t.string   "department"
     t.text     "skills"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

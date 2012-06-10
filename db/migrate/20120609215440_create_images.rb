@@ -8,7 +8,7 @@ class CreateImages < ActiveRecord::Migration
   end
 
   def self.down
-  	drop_attached_file :users, :image
+  	drop_attached_file :images, :image
   	drop_table :images
   end
 end

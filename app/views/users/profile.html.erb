@@ -1,21 +1,29 @@
-<h1><%= @user.full_name %></h1>
-<img src=""/>
+<% stylesheet "profile" %>
+<div class="profile_header">
+	<div class="left">
+		<div style="padding-top: 40px">
+			<div class="photo" style="background-image: url('<%= @user.image ? @user.image.url(:small) : nil %>')">
+				<!-- <img src="<%= @user.image ? @user.image.url(:small) : nil %>" width="125px" height="125px"/> -->
+			</div>
+			<div class="about">
+				<fullname><%= @user.full_name %></fullname><%= link_to "Edit", edit_user_registration_path %>
+				<div class="g-clear-20"></div>
+				<department>Department: <%= @user.department %> </department>
+				<department>Title: <%=@user.title %> </department>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<b>Skills</b>
+		<div class="g-clear-20"></div>
+		<% @user.skills.split("\n").each do |skill| %>
+			<skill><%= skill %> </skill>
+		<% end %>
+	</div>
+</div>
 
-<%= link_to "Edit profile", edit_user_registration_path %>
-<p>
-<b>Skills</b>
-<%=@user.skills %>
-</p>
-
-<p>
-<b>Title</b>
-<%=@user.title %>
-</p>
-<p>
-<b>Department</b>
-<%=@user.department %>
-</p>
-<p>
-<b>Skills</b>
-<%=@user.skills %>
-</p>
+<div class="content">
+	<% @user.ideas.each do |idea| %>
+		<%= render :partial=>"shared/idea.html.erb", :locals=>{:idea=>idea} %>
+	<% end %>
+</div>

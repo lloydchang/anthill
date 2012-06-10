@@ -16,13 +16,6 @@
     <h3>Most popular</h3>
 
     <% @ideas.each do |idea| %>
-      <div class="idea">
-        <div class="image"><a href="<%=idea_path(idea) %>"><img src="<%= idea.images.first ? idea.images.first.image.url(:thumb) : nil%>" width="280px" height="187px"></a></div>
-        <div class="g-clear-10"></div>
-        <div class="title"><%= link_to idea.title, idea %></div>
-        <div class="g-clear-10"></div>
-        <div class="owner">by <%=link_to idea.user.full_name, profile_path(:id=>idea.user.id) %>
-
-      </div>
+        <%= render :partial=>"shared/idea.html.erb", :locals=>{:idea=>idea} %>
     <% end %>
 </div>

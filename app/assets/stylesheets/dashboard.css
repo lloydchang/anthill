@@ -33,22 +33,3 @@ body{
 	margin-right: 90px;
 	margin-top: 50px;
 }
-
-.idea{
-	width: 280px;
-	height: 300px;
-	border: 1px solid #e0e0e0;
-	margin: 10px;
-	padding: 10px;
-	background-color: #fff;
-	  border-top-left-radius: 5px;
-	  border-top-right-radius: 5px;
-	  border-bottom-left-radius: 5px;
-	  border-bottom-right-radius: 5px;
-
-}
-
-.idea .title{
-	font-weight: bold;
-}
-
