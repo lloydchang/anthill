@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :check_owner, :only=>[:update, :destroy]
   
   # GET /ideas
   # GET /ideas.json
@@ -59,8 +60,6 @@ class IdeasController < ApplicationController
   # PUT /ideas/1
   # PUT /ideas/1.json
   def update
-    @idea = Idea.find(params[:id])
-
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
@@ -87,12 +86,16 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
-    @idea = Idea.find(params[:id])
     @idea.destroy
 
     respond_to do |format|
       format.html { redirect_to ideas_url }
       format.json { head :no_content }
     end
+  end
+
+  def check_owner
+    @idea = Idea.find(params[:id])
+    redirect_to(ideas_path, :alert=>"You are not an owner of this idea") if @idea.owner != current_user
   end
 end
