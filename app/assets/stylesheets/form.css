@@ -5,28 +5,7 @@
 	background-color: #ebebeb;
 	padding: 40px;
 }
-
-input, textarea{
-	width: 100%;
-		  border-top-left-radius: 5px;
-	  border-top-right-radius: 5px;
-	  border-bottom-left-radius: 5px;
-	  border-bottom-right-radius: 5px;
-	  border: 1px silver solid;
-
-	  font-size: 20px;
-	  padding:5px;
-	  margin: 10px;
-}
-
-input{
-	height: 30px;
-}
-
-textarea{
-	height: 70px;
-}
-
 h3{
 	font-size: 40px;
 }
+

@@ -66,12 +66,37 @@
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-	border-bottom: 1px solid rgba(0,0,0,0.25);
 	position: relative;
 	cursor: pointer;
 	margin: 3px;
 	text-align: center;
 }
+
+input, textarea{
+	width: 100%;
+		  border-top-left-radius: 5px;
+	  border-top-right-radius: 5px;
+	  border-bottom-left-radius: 5px;
+	  border-bottom-right-radius: 5px;
+	  border: 1px silver solid;
+
+	  font-size: 20px;
+	  padding:5px;
+	  margin-bottom:20px;
+}
+
+input{
+	height: 30px;
+}
+
+textarea{
+	height: 70px;
+}
+
+h3{
+	font-size: 40px;
+}
+
 
 
 .awesome:hover								{ background-color: #111; color: #fff; }
@@ -140,6 +165,7 @@ a{
 .header2 .logo{
 	float: left;
 	font-size: 20pt;
+	font-weight: bold;
 }
 
 .one_column{
@@ -168,6 +194,29 @@ input.button{
 
 	}
 
+a.button{
+		background-color: #222 ; 
+	display: inline-block; 
+	padding: 5px 10px 6px; 
+	color: #fff; 
+	text-decoration: none;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	margin: 3px;
+	text-align: center;
+	background-color: #91bd09;
+	width: 230px;
+	height: 40px; 
+	font-size: 18pt;
+	padding-top: 10pt ;
+}
+
 .big{
 	font-size: 40px;
 	height: 60px;
@@ -177,7 +226,8 @@ input.button{
 	width: 280px;
 	height: 300px;
 	border: 1px solid #e0e0e0;
-	margin: 10px;
+	margin-right: 20px;
+	margin-top: 20px;
 	padding: 10px;
 	background-color: #fff;
 	  border-top-left-radius: 5px;
@@ -185,6 +235,14 @@ input.button{
 	  border-bottom-left-radius: 5px;
 	  border-bottom-right-radius: 5px;
 	float: left;
+}
+.icons span{
+	margin-right: 20px;
+}
+.idea .icons{
+	padding-top: 7px;
+	margin-top: 30px;
+	border-top: 1px solid #ccc;
 }
 
 .idea .title{

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="right">
-        <%= link_to "New Idea", new_idea_path() , :class=>"large green awesome" %>
+        <%= link_to "New Idea", new_idea_path() , :class=>"button" %>
     </div>
 </div>
 <div class="content">
@@ -18,4 +18,5 @@
     <% @ideas.each do |idea| %>
         <%= render :partial=>"shared/idea.html.erb", :locals=>{:idea=>idea} %>
     <% end %>
+    <div class="g-clear-20"></div>
 </div>

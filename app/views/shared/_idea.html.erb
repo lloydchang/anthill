@@ -4,4 +4,12 @@
         <div class="title"><%= link_to idea.title, idea_path(idea) %></div>
         <div class="g-clear-10"></div>
         <div class="owner">by <%=link_to idea.user.full_name, profile_path(:id=>idea.user.id) %></div>
+        <div class="icons">
+        	<span>
+        		<img src="/images/joiners.png"/> 22
+        	</span>
+        	<span>
+        		<img src="/images/like.png"/> 31
+        	</span>
+        </div>
       </div>
