@@ -23,7 +23,7 @@
   <% if @idea.user != current_user %>
     <div class="center">
       <% if @idea.users.include?(current_user) %>
-        <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?', :class=>"large green awesome" %>
+        <%= link_to 'Leave', unjoin_idea_path(@idea) , confirm: 'Are you sure?', :class=>"large green awesome" %>
       <% else %>
         <%= link_to 'Join', join_idea_path(@idea), :class=>"large green awesome" %>
       <% end %>
