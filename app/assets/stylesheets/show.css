@@ -13,7 +13,7 @@
 	float: right;
 	background-color: #ebebeb;
 	padding: 10px;
-	width: 400px;
+	width: 300px;
 	height: 215px;
 	margin-right: 90px;
 }
@@ -39,10 +39,14 @@
 
 .idea_content{
 	background-color: #ebebeb;
+	padding-top: 30px;
+	padding-left: 100px;
+	height: 300px;
 }
 
 .idea_description{
 	padding-top: 20px;
+	padding-left: 100px;
 }
 .idea_description div{
 	margin-left: 90px;
@@ -63,4 +67,13 @@ ideaproblem{
 	display:block;
 	margin: 20px;
 	color: gray;
+}
+.user{
+	margin-top: 130px;
+	margin-left: 50px;
+}
+.about{
+	color: #fff;
+		text-shadow: #000 1px 1px 1px;	
+
 }

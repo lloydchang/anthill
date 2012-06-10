@@ -20,29 +20,9 @@ body{
 
 }
 
-.photo{
-	float: left;
-	display: table-cell;
-
-}
-
-.about{
-	padding-left: 20px;
-	float: left;
-	display:table-cell;
-}
-
 .content{
 	margin-left: 90px;
 	margin-right: 90px;
 	margin-top: 50px;
 }
 
-fullname{
-	font-size: 30px;
-	font-weight: bold;
-}
-
-department{
-	display:block;
-}

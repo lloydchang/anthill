@@ -1,7 +1,19 @@
 <% stylesheet "show" %>
 <div class="idea_header">
   <div class="left" style="background-image: url('<%= @idea.images.first ? @idea.images.first.image.url(:med) : nil%>'); ">
+  <div class="user">
+    <div class="photo" style="background-image: url('<%= @idea.user.image ? @idea.user.image.url(:small) : nil %>')"></div>
+    <div class="about">
+        <fullname><%= @idea.user.full_name %></fullname>
+        <div class="g-clear-20"></div>
+        <department>Department: <%= @idea.user.department %> </department>
+        <department>Title: <%=@idea.user.title %> </department>
+    </div>
+
   </div>
+
+  </div>
+
   <div class="right">
     <div class="center">
     <div class="joined"><b><%= (14 + @idea.users.count).to_s %>  </b> <br/> joined </div>
@@ -36,6 +48,9 @@
       </ideaproblem>
   </div>
   <div class="right">
+    <% @idea.requirements.split("\n").each do |req| %>
+    <skill> <%=req %>
+    <% end %>
   </div>
   <div class="g-clear"></div>
 </div>

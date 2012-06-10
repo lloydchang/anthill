@@ -199,9 +199,23 @@ input.button{
 	  border-bottom-right-radius: 66px;
 	border: 6px solid #fff;
   box-shadow:         2px 2px 6px 0px #aaa;
-
+	float: left;
+	display: table-cell;
 }
 
+.about{
+	padding-left: 20px;
+	float: left;
+	display:table-cell;
+}
+fullname{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+department{
+	display:block;
+}
 
 skill{
 	display:inline;
@@ -210,6 +224,8 @@ skill{
 	  border-bottom-left-radius: 5px;
 	  border-bottom-right-radius: 5px;
 	background-color: silver;
+	border: 1px solid gray;
 	padding: 4px;
-	margin: 4px;	
+	margin: 4px;
+	color: #fff;	
 }
