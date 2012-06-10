@@ -49,8 +49,11 @@
   </div>
   <div class="right">
     Requirements<br/>
+    <% if @idea.requirements %>
     <% @idea.requirements.split("\n").each do |req| %>
+  
     <skill> <%=req %></skill>
+    <% end %>
     <% end %>
   </div>
   <div class="g-clear"></div>
