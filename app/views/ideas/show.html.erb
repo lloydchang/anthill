@@ -1,55 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @idea.title %>
-</p>
-
-<p>
-  <b>Problem:</b>
-  <%= @idea.problem %>
-</p>
-
-<p>
-  <b>Solution:</b>
-  <%= @idea.solution %>
-</p>
-
-<p>
-  <b>Video:</b>
-  <%= @idea.video %>
-</p>
-
-<p>
-  <b>Requirements:</b>
-  <%= @idea.requirements %>
-</p>
-<%= form_for Image.new, :html => { :multipart => true } do |f| %>
-  <%= f.file_field :image %>
-  <%= f.hidden_field :idea_id, :value=>@idea.id %>
-  <%= f.submit "Upload" %>
-<% end %>
-<% if @idea.user == current_user %>
-  <% @idea.images.each do |i| %>
-  <div>
-    <img src="<%=  i.image.url(:small) %>"/>
-    <%= link_to 'Destroy', i, confirm: 'Are you sure?', method: :delete %>
+<% stylesheet "show" %>
+<div class="idea_header">
+  <div class="left" style="background-image: url('<%= @idea.images.first ? @idea.images.first.image.url(:med) : nil%>'); ">
   </div>
+  <div class="right">
+    <div class="center">
+    <div class="joined"><b>22</b> <br/> joined </div>
+    <div class="liked"><b>12</b> <br/> liked this</div>
+  </div>
+  <div class="g-clear-20"></div>
+  <div class="center">
+  <% if @idea.users.include?(current_user) %>
+    <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?', :class=>"large green awesome" %>
+  <% else %>
+    <%= link_to 'Join', join_idea_path(@idea), :class=>"large green awesome" %>
   <% end %>
-<% end %>
 
-<% @idea.users.each do |u| %>
-<div>
-  <b><%= u.email %></b>
-  <% if u.id == current_user.id %>
-    <%= link_to 'Unjoin', unjoin_idea_path(@idea) , confirm: 'Are you sure?' %>
-  <% end %>
+  </div>
+  </div>
 </div>
-<% end %>
-<% unless @idea.users.include?(current_user) %>
-  <%= link_to 'Join', join_idea_path(@idea) %>
-<% end %>
+<div class="g-clear"></div>
+<div class="idea_content">
+  <div class="left">
+    <p id="notice"><%= notice %></p>
+
+      <ideatitle>
+        <%= @idea.title %>
+        <% if @idea.user == current_user %>
+          <%= link_to 'Edit', edit_idea_path(@idea) %>
+        <% end %>
+      </ideatitle>
+      <ideaproblem>
+        <%= @idea.problem %>
+      </ideaproblem>
+  </div>
+  <div class="right">
+  </div>
+  <div class="g-clear"></div>
+</div>
+
+<div class="idea_description">
+  <div>
+      <%= @idea.solution %>
+      <% if @idea.user == current_user %>
+        <div class="g-clear-20"></div>
+        <h3>Manage photos</h3>
+        <%= form_for Image.new, :html => { :multipart => true } do |f| %>
+          <%= f.file_field :image %>
+          <%= f.hidden_field :idea_id, :value=>@idea.id %>
+          <%= f.submit "Upload" %>
+        <% end %>
+          <% @idea.images.each do |i| %>
+          <div>
+            <img src="<%=  i.image.url(:thumb) %>" width="20px" height="20px" />
+            <%= link_to 'Destroy', i, confirm: 'Are you sure?', method: :delete %>
+          </div>
+          <% end %>
+    <% end %>
+
+
+  </div>
+
+
+</div>
 
 <br/>
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>

@@ -1,37 +1,37 @@
-<%= form_for(@idea) do |f| %>
-  <% if @idea.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+<%  stylesheet "form" %>
+<div class="one_column">
+  <div class="form center">
+  <%= form_for(@idea) do |f| %>
+    <% if @idea.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
-      <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @idea.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <h3><%= @idea.id.nil? ? "New Great Idea" : "Change idea" %></h3>
+    <div class="field">
+      <%= f.text_field :title, :placeholder => "title" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :problem, :placeholder=>"Identify the idea/problem you have" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :solution, :placeholder=>"Suggest possible solution/implementation" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :requirements, :placeholder=>"Specify requirements/skills needed" %>
+    </div>
+    <div class="actions">
+      <%= f.submit  :class=>"button big" %>
+      <span style="float:right; padding-top: 40px">
+      <%= link_to "Back", dashboard_ideas_path %>
+      </span>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :problem %><br />
-    <%= f.text_area :problem %>
-  </div>
-  <div class="field">
-    <%= f.label :solution %><br />
-    <%= f.text_area :solution %>
-  </div>
-  <div class="field">
-    <%= f.label :video %><br />
-    <%= f.text_field :video %>
-  </div>
-  <div class="field">
-    <%= f.label :requirements %><br />
-    <%= f.text_area :requirements %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+</div>

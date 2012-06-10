@@ -1,0 +1,66 @@
+.idea_header{
+	width: 100%;
+	padding-top: 20px;
+}
+
+.idea_header .left, .idea_content .left{
+	float:left;
+	width: 620px;
+	height: 245px;
+	margin-left: 90px;
+}
+.idea_header .right, .idea_content .right{
+	float: right;
+	background-color: #ebebeb;
+	padding: 10px;
+	width: 400px;
+	height: 215px;
+	margin-right: 90px;
+}
+
+.center{
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	text-align: center;
+}
+.liked, .joined{
+	font-size: 30px;
+	display:table-cell;
+	padding-top: 40px;
+	width: 200px;
+	text-align: center;
+}
+
+.liked b,.joined b{
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.idea_content{
+	background-color: #ebebeb;
+}
+
+.idea_description{
+	padding-top: 20px;
+}
+.idea_description div{
+	margin-left: 90px;
+	margin-right: 90px;
+}
+
+.idea_content .left{
+	background-color: #ebebeb;
+}
+
+ideatitle{
+	display: block;
+	font-weight: bold;
+	font-size: 25px;
+	padding-top: 20px;
+}
+ideaproblem{
+	display:block;
+	margin: 20px;
+	color: gray;
+}

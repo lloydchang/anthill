@@ -17,7 +17,7 @@
 
     <% @ideas.each do |idea| %>
       <div class="idea">
-        <div class="image"><a href="<%=idea_path(idea) %>"><img src="<%=idea.images.first.image.url(:thumb)%>" width="280px" height="187px"></a></div>
+        <div class="image"><a href="<%=idea_path(idea) %>"><img src="<%= idea.images.first ? idea.images.first.image.url(:thumb) : nil%>" width="280px" height="187px"></a></div>
         <div class="g-clear-10"></div>
         <div class="title"><%= link_to idea.title, idea %></div>
         <div class="g-clear-10"></div>
