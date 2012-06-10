@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :collaborate_ideas, :through => :idea_users, :source=> :idea, :foreign_key=>"idea_id"
 
   def full_name    
-    first_name.empty? && !last_name.empty? ? email :  "#{first_name} #{last_name}"
+    first_name.blank? && !last_name.blank? ? email :  "#{first_name} #{last_name}"
   end
 
 end
