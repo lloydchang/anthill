@@ -109,6 +109,6 @@ class IdeasController < ApplicationController
 
   def check_owner
     @idea = Idea.find(params[:id])
-    redirect_to(ideas_path, :alert=>"You are not an owner of this idea") if @idea.owner != current_user
+    redirect_to(ideas_path, :alert=>"You are not an owner of this idea") if @idea.user != current_user
   end
 end

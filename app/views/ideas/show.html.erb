@@ -48,8 +48,9 @@
       </ideaproblem>
   </div>
   <div class="right">
+    Requirements<br/>
     <% @idea.requirements.split("\n").each do |req| %>
-    <skill> <%=req %>
+    <skill> <%=req %></skill>
     <% end %>
   </div>
   <div class="g-clear"></div>

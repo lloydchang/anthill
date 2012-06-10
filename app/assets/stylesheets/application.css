@@ -218,7 +218,8 @@ department{
 }
 
 skill{
-	display:inline;
+	float: left;
+	display:block-inline;
 	  border-top-left-radius: 5px;
 	  border-top-right-radius: 5px;
 	  border-bottom-left-radius: 5px;
@@ -227,5 +228,6 @@ skill{
 	border: 1px solid gray;
 	padding: 4px;
 	margin: 4px;
-	color: #fff;	
+	color: #fff;
+
 }
