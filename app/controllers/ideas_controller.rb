@@ -1,6 +1,19 @@
 class IdeasController < ApplicationController
+  layout 'logged'
   before_filter :authenticate_user!
   before_filter :check_owner, :only=>[:update, :destroy]
+
+  # GET /dashboard
+  # GET /dashboard.json
+  def dashboard
+    @ideas = Idea.all
+
+    respond_to do |format|
+      format.html # dashboard.html.erb
+      format.json { render json: @ideas }
+    end
+  end
+
   
   # GET /ideas
   # GET /ideas.json

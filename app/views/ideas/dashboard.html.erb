@@ -1,0 +1,28 @@
+<% stylesheet "dashboard" %>
+<div class="subheader">
+    <div class="left">
+        <div class="h3">
+            Discover Ideas
+        </div>
+        <div class="sub">
+            See your co-workers ideas. Help them make it real.
+        </div>
+    </div>
+    <div class="right">
+        <%= link_to "New Idea", new_idea_path() , :class=>"large green awesome" %>
+    </div>
+</div>
+<div class="content">
+    <h3>Most popular</h3>
+
+    <% @ideas.each do |idea| %>
+      <div class="idea">
+        <div class="image"><a href="<%=idea_path(idea) %>"><img src="<%=idea.images.first.image.url(:thumb)%>" width="280px" height="187px"></a></div>
+        <div class="g-clear-10"></div>
+        <div class="title"><%= link_to idea.title, idea %></div>
+        <div class="g-clear-10"></div>
+        <div class="owner">by <%=link_to idea.user.full_name, profile_path(:id=>idea.user.id) %>
+
+      </div>
+    <% end %>
+</div>

@@ -1,1 +1,11 @@
-<h1>JoinMe</h1>
+<% stylesheet "home" %>
+<div style="padding-top: 100px; padding-bottom: 300px;" align="center">
+<div id="anthill" style="font-size: 50px">anthill</div>
+<div style="font-family: 'Oswald', sans-serif; font-size: 24px; padding-top: 30px; padding-bottom:10px;color: white;">do something big.</div>
+
+<%= form_for(:user, :as => :user, :url => user_session_path()) do |f| %>
+  <%= f.email_field :email, :style=>"width: 220px; height: 30px; font-size:16px;", :placeholder=>"Email" %>
+  <div style="padding-top:10px"><%= f.submit "Get Started", :class=>"large green awesome" %></div>
+<% end %>
+
+</div>

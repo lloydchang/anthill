@@ -1,5 +1,7 @@
 Joinme::Application.routes.draw do
 
+  devise_for :users, :controllers => {:sessions => "custom_sessions"}
+
   resources :images, :only=>[:create, :destroy]
 
   resources :ideas do
@@ -7,9 +9,11 @@ Joinme::Application.routes.draw do
       get :join 
       get :unjoin
     end
+    collection do
+      get :dashboard
+    end
   end
 
-  devise_for :users, :controllers => {:sessions => "sessions"}
 
   get 'profile' => "users#profile"
   

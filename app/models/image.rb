@@ -6,7 +6,7 @@ class Image < ActiveRecord::Base
   	  :path => ":rails_root/public/photos/:idea_id/:id_:style",
       :url => "/photos/:idea_id/:id_:style",
   	:styles => {
-  		:thumb=> "380x350",
+  		:thumb=> "280x187",
   		:small  => "50x50" },
     :storage => :s3,
     :bucket => 'joinme',
