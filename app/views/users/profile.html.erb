@@ -8,8 +8,10 @@
 			<div class="about">
 				<fullname><%= @user.full_name %></fullname><%= link_to "Edit", edit_user_registration_path %>
 				<div class="g-clear-20"></div>
+				<department>Email: <%= link_to @user.email, "mailto:@user.email" %> </department>
 				<department>Department: <%= @user.department %> </department>
 				<department>Title: <%=@user.title %> </department>
+
 			</div>
 		</div>
 	</div>
