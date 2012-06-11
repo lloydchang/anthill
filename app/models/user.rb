@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :idea_users
   has_many :collaborate_ideas, :through => :idea_users, :source=> :idea, :foreign_key=>"idea_id"
 
+  belongs_to :company
+
   has_attached_file :image,
       :path => "/users/:id/:id_:style",
     :styles => {
@@ -22,7 +24,8 @@ class User < ActiveRecord::Base
     :s3_credentials => {
       :access_key_id => 'AKIAJ4XWOBHDDCG7TJXQ',
       :secret_access_key => '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'
-    }
+    },
+    :default_url =>'/images/noavatar.jpg'
   
   def full_name    
     first_name.blank? && !last_name.blank? ? email :  "#{first_name} #{last_name}"

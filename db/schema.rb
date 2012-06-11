@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610200448) do
+ActiveRecord::Schema.define(:version => 20120611022100) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "idea_users", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120610200448) do
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "company_id"
   end
 
   create_table "images", :force => true do |t|
@@ -63,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120610200448) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "company_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

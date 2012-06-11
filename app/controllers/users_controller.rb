@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  layout 'logged'
   before_filter :authenticate_user!
   
   def profile

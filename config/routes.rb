@@ -1,5 +1,7 @@
 Joinme::Application.routes.draw do
 
+  # resources :companies
+
   devise_for :users, :controllers => {:sessions => "custom_sessions"} do
     get "users", :to => "users#profile", :as => :user_root
   end

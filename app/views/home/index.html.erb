@@ -5,6 +5,7 @@
 
 <%= form_for(:user, :as => :user, :url => user_session_path()) do |f| %>
   <%= f.email_field :email, :style=>"width: 220px; height: 30px; font-size:16px;", :placeholder=>"Email" %>
+  <%= f.passsword_field :password, :style=>"width: 220px; height: 30px; font-size:16px;", :placeholder=>"Password" %>
   <div style="padding-top:10px;"><%= f.submit "Get Started", :class=>"large green awesome", :style=>"width: 230px;height: 40px; font-size: 18pt" %></div>
 <% end %>
 

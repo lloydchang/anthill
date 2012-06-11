@@ -1,12 +1,11 @@
 class IdeasController < ApplicationController
-  layout 'logged'
   before_filter :authenticate_user!
   before_filter :check_owner, :only=>[:update, :destroy]
 
   # GET /dashboard
   # GET /dashboard.json
   def dashboard
-    @ideas = Idea.all
+    @ideas = current_user.company.ideas
 
     respond_to do |format|
       format.html # dashboard.html.erb
@@ -18,6 +17,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
+    return redirect_to(dashboard_ideas_path)
+
     @ideas = Idea.all
 
     respond_to do |format|

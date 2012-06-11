@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anthill</title>
+  <%= stylesheet_link_tag    "application", "960", "text", "reset", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag content_for(:stylesheets) if content_for?(:stylesheets) %>
+  <%= javascript_include_tag content_for(:javascripts) if content_for?(:javascripts) %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>
