@@ -23,9 +23,9 @@ Joinme::Application.routes.draw do
 
   get 'profile' => "users#profile"
 
-  constraints(Subdomain) do
-    match '/' => 'ideas#dashboard'
-  end
+  # constraints(Subdomain) do
+  #   match '/' => 'ideas#dashboard'
+  # end
   
   root :to => "home#index"
   
