@@ -6,7 +6,7 @@
         <div class="owner">by <%=link_to idea.user.full_name, profile_path(:id=>idea.user.id) %></div>
         <div class="icons">
         	<span>
-        		<img src="/images/joiners.png"/> 22
+        		<img src="/images/joiners.png"/> <%= (1 + @idea.users.count).to_s %>
         	</span>
         	<span>
         		<img src="/images/like.png"/> 31
