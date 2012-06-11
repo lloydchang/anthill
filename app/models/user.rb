@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :idea_users
   has_many :collaborate_ideas, :through => :idea_users, :source=> :idea, :foreign_key=>"idea_id"
 
+  has_many :comments;
+
   belongs_to :company
 
   has_attached_file :image,

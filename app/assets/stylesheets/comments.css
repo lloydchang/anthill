@@ -1,0 +1,27 @@
+.comments{
+	margin-left: 190px;
+
+	width: 600px;
+}
+.comments h3{
+	margin: 30px;
+}
+
+.comment form{
+	width: 400px;
+
+}
+
+.comment{
+	padding-top: 20px;
+}
+
+.comment_actions{
+	font-size: 10pt;
+}
+
+.comment_user{
+	float:left;
+	width: 40px;
+	font-size: 10px;
+}

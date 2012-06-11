@@ -1,4 +1,4 @@
-<% stylesheet "show" %>
+<% stylesheet "show,comments" %>
 <div class="idea_header">
   <div class="left" style="background-image: url('<%= @idea.images.first ? @idea.images.first.image.url(:med) : nil%>'); ">
   <div class="user">
@@ -44,7 +44,7 @@
         <% end %>
       </ideatitle>
       <ideaproblem>
-        <%= @idea.problem %>
+        Problem: <%= @idea.problem %>
       </ideaproblem>
   </div>
   <div class="right">
@@ -61,7 +61,7 @@
 
 <div class="idea_description">
   <div>
-      <%= @idea.solution %>
+      Solution: <%= @idea.solution %>
       <% if @idea.user == current_user %>
         <div class="g-clear-20"></div>
         <h3>Manage photos</h3>
@@ -81,6 +81,30 @@
 
   </div>
 
+  <div class="g-clear-20"></div>
+</div>
+<div class="comments">
+  <div class="comment_form">
+    <%= form_for(@comment) do |f| %>
+      <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+          <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.text_area :comment, :placeholder =>"Leave your comment" %>
+
+      <%= f.hidden_field :idea_id, :value => @idea.id %>
+        <%= f.submit "Post", :class=>"button" %>
+    <% end %>
+  </div>
+  <div class="g-clear-20"></div>
+  <%= render :partial => "shared/comment", :collection => @idea.comments %>
 
 </div>
 

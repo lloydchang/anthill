@@ -1,5 +1,7 @@
 Joinme::Application.routes.draw do
 
+  resources :comments
+
   # resources :companies
 
   devise_for :users, :controllers => {:sessions => "custom_sessions"} do
