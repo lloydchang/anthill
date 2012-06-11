@@ -60,7 +60,7 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(params[:idea])
     @idea.user_id = current_user.id
-    @idea.company_id = current_user.id
+    @idea.company_id = current_user.company_id
 
     respond_to do |format|
       if @idea.save
