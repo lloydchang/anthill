@@ -19,7 +19,7 @@
 		<%=link_to 'Profile', profile_path() %>
 
 		<% if user_signed_in? %>
-	  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+	  	<%= link_to('Logout', destroy_user_session_url(:subdomain=>nil), :method => :delete) %>        
 		<% else %>
 		  <%= link_to('Login', root_path)  %>  
 	<% end %>

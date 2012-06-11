@@ -1,6 +1,7 @@
+require 'subdomain'
 Joinme::Application.routes.draw do
 
-  resources :comments
+  
 
   # resources :companies
 
@@ -8,24 +9,26 @@ Joinme::Application.routes.draw do
     get "users", :to => "users#profile", :as => :user_root
   end
 
-  resources :images, :only=>[:create, :destroy]
+  constraints(Subdomain) do
+    resources :comments
+    resources :images, :only=>[:create, :destroy]
 
-  resources :ideas do
-    member do
-      get :join 
-      get :unjoin
+    resources :ideas do
+      member do
+        get :join 
+        get :unjoin
+      end
+      collection do
+        get :dashboard
+      end
     end
-    collection do
-      get :dashboard
-    end
+
+
+    get 'profile' => "users#profile"
+
+  
+    match '/' => 'ideas#dashboard'
   end
-
-
-  get 'profile' => "users#profile"
-
-  # constraints(Subdomain) do
-  #   match '/' => 'ideas#dashboard'
-  # end
   
   root :to => "home#index"
   
