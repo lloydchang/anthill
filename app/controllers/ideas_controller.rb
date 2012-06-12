@@ -99,6 +99,15 @@ class IdeasController < ApplicationController
     redirect_to(@idea)
   end
 
+  def like
+    @idea = Idea.find(params[:id])
+    @idea.like(current_user)
+    respond_to do |format|
+      format.html { redirect_to @idea }
+      format.js
+    end
+  end
+
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy

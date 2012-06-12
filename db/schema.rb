@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612054510) do
+ActiveRecord::Schema.define(:version => 20120612234621) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(:version => 20120612054510) do
     t.string   "video"
     t.text     "requirements"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.integer  "company_id"
+    t.integer  "likes",        :default => 1
   end
 
   create_table "images", :force => true do |t|
@@ -59,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20120612054510) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "user_likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

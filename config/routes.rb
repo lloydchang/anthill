@@ -17,6 +17,7 @@ Joinme::Application.routes.draw do
       member do
         get :join 
         get :unjoin
+        get :like
       end
     end
 
