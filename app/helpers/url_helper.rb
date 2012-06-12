@@ -6,8 +6,6 @@ module UrlHelper
   end
   
   def url_for(options = nil)
-    puts "=" * 40
-    puts options
     if options.kind_of?(Hash) && options.has_key?(:subdomain)
       options[:host] = with_subdomain(options.delete(:subdomain))
     end
