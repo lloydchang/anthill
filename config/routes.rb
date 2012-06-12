@@ -5,8 +5,8 @@ Joinme::Application.routes.draw do
 
   # resources :companies
 
-  devise_for :users, :controllers => {:sessions => "custom_sessions"} do
-    get "users", :to => "users#profile", :as => :user_root
+  devise_for :users, :controllers => {:sessions => "antdevise/sessions"} do
+    get "userroot", :to => "users#userroot", :as => :user_root
   end
 
   constraints(Subdomain) do
@@ -18,18 +18,13 @@ Joinme::Application.routes.draw do
         get :join 
         get :unjoin
       end
-      collection do
-        get :dashboard
-      end
     end
-
 
     get 'profile' => "users#profile"
 
-  
+    match 'dashboard' => "ideas#dashboard", :as => :dashboard
     match '/' => 'ideas#dashboard'
   end
-  
   root :to => "home#index"
   
   # The priority is based upon order of creation:

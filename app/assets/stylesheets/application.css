@@ -289,3 +289,12 @@ skill{
 	color: #fff;
 
 }
+.alert, .notice{
+	width:100%;
+	margin:0px;
+	padding:10px;
+	background-color: #F6F7DA;
+	color: orange;
+	text-align: center;
+}
+

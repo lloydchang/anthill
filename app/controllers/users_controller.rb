@@ -5,4 +5,8 @@ class UsersController < ApplicationController
   	@user = User.find_by_id(params[:id]) || current_user
   end
 
+  def userroot
+  	redirect_to(dashboard_url(:user=>current_user))
+  end
+
 end

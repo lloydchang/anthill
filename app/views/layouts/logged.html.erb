@@ -12,10 +12,10 @@
 <body>
 <div class="header2">
 	<div class="logo">
-		<%= link_to "anthill", dashboard_ideas_path %>
+		<%= link_to "anthill", dashboard_path %>
 	</div>
 	<div class="usermenu">
-		<%=link_to 'Dashboard', dashboard_ideas_path() %>
+		<%=link_to 'Dashboard', dashboard_path() %>
 		<%=link_to 'Profile', profile_path() %>
 
 		<% if user_signed_in? %>

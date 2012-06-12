@@ -17,7 +17,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    return redirect_to(dashboard_ideas_path)
+    return redirect_to(dashboard_path)
 
     @ideas = Idea.all
 

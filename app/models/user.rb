@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :department, :skills, :image
@@ -12,8 +12,7 @@ class User < ActiveRecord::Base
   has_many :idea_users
   has_many :collaborate_ideas, :through => :idea_users, :source=> :idea, :foreign_key=>"idea_id"
 
-  has_many :comments;
-
+  has_many :comments
   belongs_to :company
 
   has_attached_file :image,
@@ -29,6 +28,19 @@ class User < ActiveRecord::Base
     },
     :default_url =>'/images/noavatar.jpg'
   
+  before_create :update_company
+
+  def update_company
+    name, company_name = email.split("@")
+    company_name = company_name.downcase
+    #do company thing
+    company = Company.find_or_create_by_name(company_name)
+    company.domain = company_name.sub(".", "-")
+    company.save
+
+    self.company_id = company.id
+  end
+
   def full_name    
     first_name.blank? && !last_name.blank? ? email :  "#{first_name} #{last_name}"
   end
