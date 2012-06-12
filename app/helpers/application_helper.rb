@@ -10,5 +10,10 @@ def stylesheet cssname
   content_for(:stylesheets, cssname)
 end
 
+  def current_company
+  	s = request.host.gsub(/\..*/, "").downcase
+  	@company = Company.find_by_subdomain(s)
+  end
+
 
 end

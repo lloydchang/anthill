@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612021343) do
+ActiveRecord::Schema.define(:version => 20120612054510) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(:version => 20120612021343) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "domain"
+    t.string   "subdomain"
   end
+
+  add_index "companies", ["subdomain"], :name => "index_companies_on_subdomain", :unique => true
 
   create_table "idea_users", :force => true do |t|
     t.integer  "user_id"

@@ -10,7 +10,7 @@ module UrlHelper
       options[:host] = with_subdomain(options.delete(:subdomain))
     end
     if options.kind_of?(Hash) && options.has_key?(:user)
-      options[:host] = with_subdomain(options.delete(:user).company.domain)
+      options[:host] = with_subdomain(options.delete(:user).company.subdomain)
     end
     super
   end

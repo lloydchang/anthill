@@ -32,12 +32,9 @@ class User < ActiveRecord::Base
 
   def update_company
     name, company_name = email.split("@")
-    company_name = company_name.downcase
+    company_domain = company_name.downcase
     #do company thing
-    company = Company.find_or_create_by_name(company_name)
-    company.domain = company_name.sub(".", "-")
-    company.save
-
+    company = Company.find_or_create_by_domain(company_domain)
     self.company_id = company.id
   end
 
