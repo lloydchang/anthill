@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   # GET /dashboard
   # GET /dashboard.json
   def dashboard
-    @ideas = current_user.company.ideas
+    @ideas = current_user.company.ideas.order("likes DESC")
 
     respond_to do |format|
       format.html # dashboard.html.erb
