@@ -18,6 +18,7 @@ Joinme::Application.routes.draw do
         get :join 
         get :unjoin
         get :like
+        post :invite
       end
     end
 

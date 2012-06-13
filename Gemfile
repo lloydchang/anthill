@@ -8,6 +8,7 @@ gem 'rails', '3.2.2'
 gem 'pg'
 gem 'sqlite3'
 gem 'devise'
+gem 'devise_invitable'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'execjs'

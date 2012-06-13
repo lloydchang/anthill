@@ -51,6 +51,9 @@ GEM
       orm_adapter (~> 0.0.7)
       railties (~> 3.1)
       warden (~> 1.1.1)
+    devise_invitable (1.0.2)
+      devise (>= 2.0.0)
+      rails (~> 3.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -153,6 +156,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 3.2.1)
   devise
+  devise_invitable
   execjs
   jquery-rails
   paperclip (~> 3.0)

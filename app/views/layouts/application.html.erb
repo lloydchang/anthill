@@ -29,7 +29,7 @@
 	<% end %>
 	</div>
 </div>
-<% unless notice.blank? %>
+<% if notice %>
   <div class="notice"><%= notice %></div>
 <% end %>
 <% unless alert.blank? %>

@@ -108,6 +108,20 @@ class IdeasController < ApplicationController
     end
   end
 
+  def invite
+    email = params[:user][:email].downcase
+    idea = Idea.find(params[:id])
+    user = User.find_by_email(email)
+    
+    unless user
+      user = User.invite!(:email => email, :idea => idea)
+    else
+      Notifier.idea_invite(user, idea).deliver
+    end
+
+    redirect_to(idea, :notice => "Invitation email successfully sent to #{email}")
+  end
+
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy

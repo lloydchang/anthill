@@ -61,11 +61,18 @@
   <div class="right">
     Requirements<br/>
     <% if @idea.requirements %>
-    <% @idea.requirements.split("\n").each do |req| %>
-  
-    <skill> <%=req %></skill>
+      <% @idea.requirements.split("\n").each do |req| %>
+        <skill> <%=req %></skill>
+      <% end %>
     <% end %>
-    <% end %>
+    <div class="g-clear-20"></div>
+    <div class="invitation">
+      <h3>Invite your co-worker help you out </h3>
+      <%= form_for(:user, :url=> invite_idea_path(@idea)) do |f| %>
+        <%= f.text_field :email, placeholder: "@#{current_user.company.domain}" %>
+        <%= f.submit "Invite", :class=>"button" %>
+      <% end %>
+    </div>
   </div>
   <div class="g-clear"></div>
 </div>
