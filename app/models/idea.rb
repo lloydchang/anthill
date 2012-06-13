@@ -1,5 +1,7 @@
 class Idea < ActiveRecord::Base
 
+	default_scope :order=>"created_at DESC"
+
 	belongs_to :user
 	belongs_to :company
 	has_many :images, :dependent => :destroy
