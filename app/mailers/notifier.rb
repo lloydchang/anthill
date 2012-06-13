@@ -1,4 +1,6 @@
 class Notifier < ActionMailer::Base
+  include UrlHelper
+   
   default from: "support@getanthill.com"
 
 
