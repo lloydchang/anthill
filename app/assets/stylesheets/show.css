@@ -67,6 +67,7 @@ ideaproblem{
 	display:block;
 	margin: 20px;
 	color: gray;
+	min-height: 150px;
 }
 .user{
 	margin-top: 130px;

@@ -8,6 +8,7 @@
         <div class="g-clear-20"></div>
         <department>Department: <%= @idea.user.department %> </department>
         <department>Title: <%=@idea.user.title %> </department>
+        
     </div>
 
   </div>
@@ -50,6 +51,12 @@
       <ideaproblem>
         Problem: <%= @idea.problem %>
       </ideaproblem>
+      <supporters>
+        Participants:
+        <% @idea.users.each do |user| %>
+          <a href="<%=profile_path(:id=>user.id)%>"><img src="<%=user.image.url(:tiny) %>" width="25px" height="25px" /> </a>
+        <% end %>
+      </supporters>
   </div>
   <div class="right">
     Requirements<br/>

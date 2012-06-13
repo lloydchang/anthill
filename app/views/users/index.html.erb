@@ -1,0 +1,31 @@
+<% stylesheet "dashboard" %>
+<div class="subheader">
+    <div class="left">
+        <div class="h3">
+            Discover People
+        </div>
+        <div class="sub">
+            See your co-workers can do much more than you expected.
+        </div>
+    </div>
+</div>
+<div class="content">
+
+    <% @users.each do |user| %>
+      <div class="idea">
+        <div class="image"><a href="<%=profile_path(:id=>user.id) %>"><img src="<%= user.image.url(:small)%>" width="125px" height="125px"></a></div>
+        <div class="g-clear-10"></div>
+        <div class="title"><%= link_to user.full_name, profile_path(:id=>user.id) %></div>
+        <div class="g-clear-10"></div>
+        <div class="owner">     
+            <% if user.skills %>
+                <% user.skills.split("\n").each do |skill| %>
+                    <skill><%= skill %> </skill>
+                <% end %>
+            <% end %>
+        </div>
+      </div>
+
+    <% end %>
+    <div class="g-clear-20"></div>
+</div>

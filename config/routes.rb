@@ -22,6 +22,7 @@ Joinme::Application.routes.draw do
     end
 
     get 'profile' => "users#profile"
+    get 'members' => "users#index"
 
     match 'dashboard' => "ideas#dashboard", :as => :dashboard
     match '/' => 'ideas#dashboard'
