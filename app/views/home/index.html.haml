@@ -5,8 +5,8 @@
   .grid_6
     %h1 Easily share project ideas with your coworkers.
     %h3 Give it a try. You'll be able to rally around ideas, get feedback, and give more influence to your project.
-  .grid_1
-    &nbsp;
+  .grid_1{:style=>"text-align:center"}
+    %img{:src=>"/images/vertical-line.png"}
   .grid_4
     %img{:src=>"/images/logo.png"}
     = form_for(:user, :as => :user, :url => user_session_path()) do |f|
