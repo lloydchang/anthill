@@ -6,7 +6,9 @@ class Antdevise::SessionsController < Devise::SessionsController
     	if user.valid_password?(params[:user][:password])
   	    sign_in(:user,user) 
   	    redirect_to(dashboard_url(:user => user))
-  	end
+  	  else
+        redirect_to(new_user_session_path, notice: "Wrong sign in information, please try again.")
+      end
     else
     	user = User.create(:email=>params[:user][:email], :password=>params[:user][:password], :first_name=>"Jim", :last_name=>"Ant")
       sign_in(:user, user)

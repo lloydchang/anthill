@@ -11,23 +11,25 @@
 </head>
 <body>
 <div class="header2">
-	<div class="logo">
-    <% if user_signed_in? %>
-		  <%= link_to "anthill for #{current_user.company.name}", dashboard_path %>
-    <% else %>
-      <%= link_to "anthill", root_url(:subdomain=>nil) %>
-    <% end %>
-	</div>
-	<div class="usermenu">
-		<% if user_signed_in? %>
-      <%= link_to 'Dashboard', dashboard_path() %>
-      <%= link_to 'Members', members_path() %>
-      <%= link_to 'Profile', profile_path() %>
-	  	<%= link_to('Logout', destroy_user_session_url(:subdomain=>nil), :method => :delete) %>        
-		<% else %>
-		  <%= link_to('Login', root_path(:subdomain =>nil)) %>  
-	<% end %>
-	</div>
+  <div class="container_12">
+  	<div class="grid_4 logo">
+      <% if user_signed_in? %>
+  		  <%= link_to "anthill for #{current_user.company.name}", dashboard_path %>
+      <% else %>
+        <%= link_to "anthill", root_url(:subdomain=>nil) %>
+      <% end %>
+  	</div>
+  	<div class="grid_8 usermenu">
+  		<% if user_signed_in? %>
+        <%= link_to 'Dashboard', dashboard_path() %>
+        <%= link_to 'Members', members_path() %>
+        <%= link_to 'Profile', profile_path() %>
+  	  	<%= link_to('Logout', destroy_user_session_url(:subdomain=>nil), :method => :delete) %>        
+  		<% else %>
+  		  <%= link_to('Login', root_path(:subdomain =>nil)) %>  
+  	<% end %>
+  	</div>
+  </div>
 </div>
 <% if notice %>
   <div class="notice"><%= notice %></div>
@@ -35,7 +37,6 @@
 <% unless alert.blank? %>
   <div class="alert"><%= alert %></div>
 <% end %>
-
 <%=yield %>
 
 <script type="text/javascript">

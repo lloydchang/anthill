@@ -63,17 +63,18 @@ a{
 .header2 a{
 	color: #fff;
 	text-decoration: none;
-	margin: 10px;
-
 }
 .header2 .usermenu{
 	width: 400px;
-	float:right;
+	text-align:right;
 	height: 40px;
 	padding-top:10px;
 }
+.header2 .usermenu a{
+	margin-left: 15px;
+}
 .header2 .logo{
-	float: left;
+	text-align:left;
 	font-size: 20pt;
 	font-weight: bold;
 }
@@ -131,7 +132,7 @@ a.button{
 }
 
 .idea{
-	width: 280px;
+	width: 260px;
 	height: 300px;
 	border: 1px solid #e0e0e0;
 	margin-right: 20px;
