@@ -1,88 +1,19 @@
-#header {
-	background: #2d769c;
-	margin: 0px 0px 10px 0px;
+body{
+	font-family: Helvetica;
 }
 
-#anthill {
-	font-family: 'Oswald', sans-serif;
-	font-size: 26px;
-	color: white;
-}
-
-#ideaTitle {
-	margin: 40px 0px 0px 0px;
-	color: #333333;
-	font-size: 24px;
-	font-weight: bold;
-}
-
-#ideaJoined, #ideaLiked {
-	display: inline;
-  	float: left;
-	font-weight: bold;
-	font-size: 50px;
-}
-
-#ideaLiked {
-	margin-left: 30px;
-}
-
-#joinedNum, #likedNum {
-	font-weight: bold;
-	font-size: 50px;
-}
-
-#joinedText, #likedText {
-	font-weight: bold;
-	font-size: 20px;
-}
-
-#ideaProblem {
-	margin: 10px 0px 0px 0px;
-	color: #666666;
-	font-size: 16px;
-	font-weight: bold;
-	line-height:120%;
-}
-
-#ideaDescTitle {
-	font-weight: bold;
-	font-size: 20px;
-	margin: 30px 0 0 0;
-}
-
-#ideaDesc {
-	margin: 10px 0 0 0;
-}
-
-.awesome, .awesome:visited {
-	background-color: #222 ; 
-	display: inline-block; 
-	padding: 5px 10px 6px; 
-	color: #fff; 
-	text-decoration: none;
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px;
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-	position: relative;
-	cursor: pointer;
-	margin: 3px;
-	text-align: center;
-}
 
 input, textarea{
 	width: 100%;
-		  border-top-left-radius: 5px;
-	  border-top-right-radius: 5px;
-	  border-bottom-left-radius: 5px;
-	  border-bottom-right-radius: 5px;
-	  border: 1px silver solid;
-
-	  font-size: 20px;
-	  padding:5px;
-	  margin-bottom:20px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 1px silver solid;
+	font-family: Helvetica;
+	font-size: 20px;
+	padding:5px;
+	margin-bottom:20px;
 }
 
 input{
@@ -96,27 +27,6 @@ textarea{
 h3{
 	font-size: 40px;
 }
-
-
-
-.awesome:hover								{ background-color: #111; color: #fff; }
-.awesome:active								{ top: 1px; }
-.small.awesome, .small.awesome:visited 		{ font-size: 11px; padding: ; }
-.awesome, .awesome:visited,
-.medium.awesome, .medium.awesome:visited 	{ font-size: 13px; font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
-.large.awesome, .large.awesome:visited 		{ font-size: 3px0px; padding: 8px 14px 9px; width: 200px; }
-.green.awesome, .green.awesome:visited		{ background-color: #91bd09; }
-.green.awesome:hover						{ background-color: #749a02; }
-.blue.awesome, .blue.awesome:visited		{ background-color: #2daebf; }
-.blue.awesome:hover							{ background-color: #007d9a; }
-.red.awesome, .red.awesome:visited			{ background-color: #e33100; }
-.red.awesome:hover							{ background-color: #872300; }
-.gray.awesome, .gray.awesome:visited		{ background-color: #BBBBBB; }
-.gray.awesome:hover							{ background-color: #DDDDDD; }
-.orange.awesome, .orange.awesome:visited	{ background-color: #ff5c00; }
-.orange.awesome:hover						{ background-color: #d45500; }
-.yellow.awesome, .yellow.awesome:visited	{ background-color: #ffb515; }
-.yellow.awesome:hover						{ background-color: #fc9200; }
 
 .g-clear, .g-clear-10, .g-clear-20{
 	clear:both;
@@ -175,7 +85,6 @@ a{
 
 input.button{
 	width: auto;
-	background-color: #222 ; 
 	display: inline-block; 
 	padding: 5px 10px 6px; 
 	color: #fff; 
@@ -190,12 +99,11 @@ input.button{
 	cursor: pointer;
 	margin: 3px;
 	text-align: center;
-	background-color: #91bd09;
+	background-color: #0ccb1a;
 
 	}
 
 a.button{
-		background-color: #222 ; 
 	display: inline-block; 
 	padding: 5px 10px 6px; 
 	color: #fff; 
@@ -210,7 +118,7 @@ a.button{
 	cursor: pointer;
 	margin: 3px;
 	text-align: center;
-	background-color: #91bd09;
+	background-color: #0ccb1a;
 	width: 230px;
 	height: 40px; 
 	font-size: 18pt;
@@ -278,10 +186,10 @@ department{
 skill{
 	float: left;
 	display:block-inline;
-	  border-top-left-radius: 5px;
-	  border-top-right-radius: 5px;
-	  border-bottom-left-radius: 5px;
-	  border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 	background-color: silver;
 	border: 1px solid gray;
 	padding: 4px;

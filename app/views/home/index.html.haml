@@ -1,0 +1,16 @@
+- stylesheet "home"
+.container_12
+  .grid_1
+    &nbsp;
+  .grid_6
+    %h1 Easily share project ideas with your coworkers.
+    %h3 Give it a try. You'll be able to rally around ideas, get feedback, and give more influence to your project.
+  .grid_1
+    &nbsp;
+  .grid_4
+    %img{:src=>"/images/logo.png"}
+    = form_for(:user, :as => :user, :url => user_session_path()) do |f|
+      = f.email_field :email, class: "email", placeholder: "Email"
+      %br/
+      = f.password_field :password, class: "password", placeholder: "Password"
+      %div{:style => "padding-top:10px;"}= f.submit "Get Started", :class=>"button"
