@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_attached_file :image,
       :path => "/users/:id/:id_:style",
     :styles => {
-      :tiny => "25x25",
+      :tiny => "25x25#",
+      :tiny2 => "50x50#",
       :small => "125x125#" },
     :storage => :s3,
     :bucket => 'joinme',

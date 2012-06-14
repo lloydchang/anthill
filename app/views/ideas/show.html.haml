@@ -1,0 +1,188 @@
+- stylesheet "idea_show,comments"
+.idea_header
+  .container_12
+    .grid_8
+      %h1
+        = @idea.title       
+        - if @idea.user == current_user
+          = link_to 'Edit', edit_idea_path(@idea)
+      %idea_problem= @idea.problem
+    .grid_4
+      INVITE A COWORKER TO THIS IDEA
+      = form_for(:user, :url=> invite_idea_path(@idea)) do |f|
+        = f.text_field :email, class:"email", placeholder: "@#{current_user.company.domain}"
+        = f.submit "SEND", :class=>"button invitebutton"
+
+.idea_description
+  .container_12
+    .grid_8
+      =image_tag @idea.images.first ? @idea.images.first.image.url(:med) : nil, size: "100%x373"
+      .g-clear-20
+
+      %b ABOUT THIS PROJECT
+      .g-clear
+      
+      .vertical-line
+      
+      = @idea.solution
+      - if @idea.user == current_user
+        .g-clear-20
+        %h3 Manage photos
+        = form_for Image.new, :html => { :multipart => true } do |f|
+          = f.file_field :image
+          = f.hidden_field :idea_id, :value=>@idea.id
+          = f.submit "Upload", class: "button"
+        - @idea.images.each do |i|
+          %div
+            %img{:height => "20px", :src => i.image.url(:thumb), :width => "20px"}/
+            = link_to 'Destroy', i, confirm: 'Are you sure?', method: :delete
+
+      .g-clear-20
+      .comments
+        .comment_form
+          = form_for(@comment) do |f|
+            - if @comment.errors.any?
+              #error_explanation
+                %h2
+                  = pluralize(@comment.errors.count, "error")
+                  prohibited this comment from being saved:
+                %ul
+                  - @comment.errors.full_messages.each do |msg|
+                    %li= msg
+            = f.text_area :comment, :placeholder =>"Leave your comment"
+            = f.hidden_field :idea_id, :value => @idea.id
+            = f.submit "Post", :class=>"button"
+        .g-clear-20
+        = render :partial => "shared/comment", :collection => @idea.comments
+      .g-clear-20
+
+      .g-clear
+    .grid_4
+      .actionbar
+        .user
+          .col_1=image_tag @idea.user.image ? @idea.user.image.url(:tiny2) : nil, size: "50x50"
+          .col_2
+            Creator:
+            %br/
+            = link_to @idea.user.full_name, profile_path(:id=>@idea.user.id)
+        .g-clear-20
+        
+        .joined
+          .col_1
+            %numbers= (1 + @idea.users.count).to_s
+          .col_2
+            Supporters:
+            %br/
+            - @idea.users.each do |user|
+              = link_to user.full_name, profile_path(:id=>user.id)
+
+        - if @idea.users.include?(current_user)
+          = link_to 'Leave this project', unjoin_idea_path(@idea) , confirm: 'Are you sure?', class: "button small"
+        - else
+          = link_to 'Join this project', join_idea_path(@idea), class: "button small"
+
+        .liked
+          .col_1
+            %numbers= @idea.likes
+          .col_2
+            %br/
+            liked this
+        .g-clear
+      .g-clear
+
+
+/ .g-clear
+/ .idea_content
+/   .container_12
+/     .grid_8.left{:style => "background-image: url('#{@idea.images.first ? @idea.images.first.image.url(:med) : nil}'); "}
+/       .user
+/         .photo{:style => "background-image: url('#{@idea.user.image ? @idea.user.image.url(:small) : nil}')"}
+/         .about
+/           %fullname= @idea.user.full_name
+/           .g-clear-20
+/           %department
+/             Department: #{@idea.user.department}
+/           %department
+/             Title: #{@idea.user.title}
+/       .g-clear
+
+/     .grid_4
+/       .center
+/         .joined
+/           %b#joined
+/             = (1 + @idea.users.count).to_s
+/           %br/
+/           joined
+/         .liked
+/           %b#likes
+/             = @idea.likes
+/           %br/
+/           liked this
+/       .g-clear-20
+/       - if @idea.user != current_user
+/         .center
+/           - if @idea.users.include?(current_user)
+/             = link_to 'Leave', unjoin_idea_path(@idea) , confirm: 'Are you sure?', class: "large green awesome"
+/           - else
+/             = link_to 'Join', join_idea_path(@idea), :class=>"large green awesome"
+/           - if @idea.liked?(current_user)
+/           - else
+/             = link_to 'Like', like_idea_path(@idea), class: "large green awesome", remote: true, id: "like_button"
+/   .left
+/     %p#notice= notice
+/     %ideatitle
+/       = @idea.title
+
+/     %ideaproblem
+/       Problem: #{@idea.problem}
+/     %supporters
+/       Participants:
+/       - @idea.users.each do |user|
+/         %a{:href => profile_path(:id=>user.id)}
+/           %img{:height => "25px", :src => user.image.url(:tiny), :width => "25px"}/
+/   .right
+/     Requirements
+/     %br/
+/     - if @idea.requirements
+/       - @idea.requirements.split("\n").each do |req|
+/         %skill
+/           = req
+/     .g-clear-20
+/     .invitation
+/       %h3 Invite your co-worker help you out
+/       = form_for(:user, :url=> invite_idea_path(@idea)) do |f|
+/         = f.text_field :email, placeholder: "@#{current_user.company.domain}"
+/         = f.submit "Invite", :class=>"button"
+/   .g-clear
+/ .idea_description
+/   %div
+/     Solution: #{@idea.solution}
+/     - if @idea.user == current_user
+/       .g-clear-20
+/       %h3 Manage photos
+/       = form_for Image.new, :html => { :multipart => true } do |f|
+/         = f.file_field :image
+/         = f.hidden_field :idea_id, :value=>@idea.id
+/         = f.submit "Upload"
+/       - @idea.images.each do |i|
+/         %div
+/           %img{:height => "20px", :src => i.image.url(:thumb), :width => "20px"}/
+/           = link_to 'Destroy', i, confirm: 'Are you sure?', method: :delete
+/   .g-clear-20
+/ .comments
+/   .comment_form
+/     = form_for(@comment) do |f|
+/       - if @comment.errors.any?
+/         #error_explanation
+/           %h2
+/             = pluralize(@comment.errors.count, "error")
+/             prohibited this comment from being saved:
+/           %ul
+/             - @comment.errors.full_messages.each do |msg|
+/               %li= msg
+/       = f.text_area :comment, :placeholder =>"Leave your comment"
+/       = f.hidden_field :idea_id, :value => @idea.id
+/       = f.submit "Post", :class=>"button"
+/   .g-clear-20
+/   = render :partial => "shared/comment", :collection => @idea.comments
+/ %br/

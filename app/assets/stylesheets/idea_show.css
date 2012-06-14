@@ -1,0 +1,130 @@
+.idea_header{
+	width: 100%;
+	padding-top: 20px;
+	background-color: #ebebe0;
+	min-height: 133px;
+}
+h1{
+	font-size: 36pt;
+	color: #333;
+}
+idea_problem{
+	color: #666;
+}
+.email{
+	width: 190px;
+	margin: 0px;
+}
+.button.invitebutton{
+	padding: 0px;
+	width: 80px;
+	height: 40px;
+	margin: 0px;
+	padding: 5px;
+}
+
+.idea_description{
+	padding-top: 20px;
+}
+.grid_4{
+	height: 100%;
+}
+.actionbar{
+	border: 1px solid #aaa;
+	background-color: #e7e7e7;
+	height: 100%;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	padding: 15px;
+	min-height: 500px;
+}
+
+.actionbar a{
+	font-weight: bold;
+}
+
+.user{}
+.col_1{
+	display: table-cell;
+	width: 50px;
+	text-align: center;
+}
+.col_2{
+	display: table-cell;
+	margin: 0px;
+	padding-left: 10px;
+	width: auto;
+	font-size: 12pt;
+	vertical-align: top;
+}
+numbers{
+	font-size: 38pt;
+	color: #333;
+	font-weight: bold;
+}
+
+/*.idea_header .left, .idea_content .left{
+	float:left;
+}
+.idea_header .right, .idea_content .right{
+	float: right;
+	background-color: #ebebeb;
+	height: 215px;
+}
+
+.liked, .joined{
+	font-size: 30px;
+	display:table-cell;
+	padding-top: 40px;
+	width: 200px;
+	text-align: center;
+}
+
+.liked b,.joined b{
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.idea_content{
+	background-color: #ebebeb;
+	padding-top: 30px;
+	padding-left: 100px;
+	height: 300px;
+}
+
+.idea_description{
+	padding-top: 20px;
+	padding-left: 100px;
+}
+.idea_description div{
+	margin-left: 90px;
+	margin-right: 90px;
+}
+
+.idea_content .left{
+	background-color: #ebebeb;
+}
+
+ideatitle{
+	display: block;
+	font-weight: bold;
+	font-size: 25px;
+	padding-top: 20px;
+}
+ideaproblem{
+	display:block;
+	margin: 20px;
+	color: gray;
+	min-height: 150px;
+}
+.user{
+	margin-top: 130px;
+	margin-left: 50px;
+}
+.about{
+	color: #fff;
+		text-shadow: #000 1px 1px 1px;	
+
+}*/
